@@ -1,0 +1,20 @@
+.custom-menu {
+    color: black; /* Default text color */
+  }
+  
+  .custom-menu .ant-menu-item,
+  .custom-menu .ant-menu-submenu-title {
+    color: black; /* Menu item text color */
+  }
+  
+  .custom-menu .ant-menu-item:hover,
+  .custom-menu .ant-menu-submenu-title:hover {
+    background-color: blue; /* Background color on hover */
+    color: rgb(26, 17, 201); /* Text color on hover */
+  }
+  
+  .custom-menu .ant-menu-item-selected {
+    background-color: blue; /* Background color for selected item */
+    color: rgb(32, 26, 183); /* Text color for selected item */
+  }
+  
