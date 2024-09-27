@@ -10,8 +10,9 @@ import './Sidebar.css';
 
 const { Sider } = Layout;
 
-const Sidebar = ({ collapsed }) => {
+const Sidebar = ({ collapsed ,onMenuSelect }) => {
   const [isDashboardExpanded, setIsDashboardExpanded] = useState(false);
+  
 
   const toggleDashboard = () => {
     setIsDashboardExpanded(!isDashboardExpanded);
@@ -34,10 +35,10 @@ const Sidebar = ({ collapsed }) => {
         >
           {isDashboardExpanded && (
             <>
-              <Menu.Item key="1-1">Data 1</Menu.Item>
-              <Menu.Item key="1-2">Data 2</Menu.Item>
-              <Menu.Item key="1-3">Data 3</Menu.Item>
-            </>
+            <Menu.Item key="1-1" onClick={() => onMenuSelect('data1')}>Data 1</Menu.Item>
+            <Menu.Item key="1-2" onClick={() => onMenuSelect('data2')}>Data 2</Menu.Item>
+            <Menu.Item key="1-3" onClick={() => onMenuSelect('data3')}>Data 3</Menu.Item>
+          </>
           )}
         </Menu.SubMenu>
         {/* <Menu.Item key="2" icon={<VideoCameraOutlined />}>

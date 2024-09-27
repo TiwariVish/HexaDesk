@@ -8,6 +8,7 @@ const { Content } = Layout;
 
 const LayoutContent = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
+  const [selectedMenu, setSelectedMenu] = useState('data1');
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -16,11 +17,16 @@ const LayoutContent = ({ children }) => {
     setCollapsed(!collapsed);
   };
 
+
+  const handleMenuSelect = (menuKey) => {
+    setSelectedMenu(menuKey); // Update the selected menu item
+  };
+
   return (
     <Layout style={{ height: '100vh', overflow: 'hidden' }}>
       <MainHeader collapsed={collapsed} toggleCollapse={toggleCollapse} />
       <Layout style={{ height: 'calc(100vh - 64px)' }}>
-        <Sidebar collapsed={collapsed} />
+        <Sidebar collapsed={collapsed} onMenuSelect={handleMenuSelect} />
         <Content
           style={{
             margin: '24px 16px',
@@ -31,7 +37,7 @@ const LayoutContent = ({ children }) => {
             overflow: 'auto',
           }}
         >
-          {children} {/* Render children components here */}
+           {children(selectedMenu)}
         </Content>
       </Layout>
     </Layout>
